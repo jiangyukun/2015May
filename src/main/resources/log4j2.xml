@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInternal="100">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d %-5level %l]   %msg%n"/>
+        </Console>
+        <File name="log" fileName="target/debug.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level   [%msg]%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="log"/>
+        </Root>
+        <Logger name="me.jiangyu" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="log"/>
+        </Logger>
+    </Loggers>
+</Configuration>
