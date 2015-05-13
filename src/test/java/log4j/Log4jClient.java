@@ -1,24 +1,19 @@
-package me.jiangyu.may.web.controller.log4j;
+package log4j;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.testng.annotations.Test;
 
 /**
  * log4j 集群测试
  * Created by jiangyukun on 2015/5/4.
  */
-@Controller
-@RequestMapping("/log4j")
-public class Log4jController {
-    private static Logger logger = Logger.getLogger(Log4jController.class);
+public class Log4jClient {
+    private static Logger logger = Logger.getLogger(Log4jClient.class);
 
-    @RequestMapping("/test")
-    public void test() {
-
-    }
-
-    public static void main(String[] args) {
+    @Test
+    public static void testClient() {
         logger.trace("trace");
         logger.debug("debug");
         logger.info("info");

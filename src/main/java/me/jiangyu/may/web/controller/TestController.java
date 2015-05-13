@@ -1,7 +1,10 @@
 package me.jiangyu.may.web.controller;
 
+import me.jiangyu.may.entity.User;
+import me.jiangyu.may.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 public class TestController {
     private Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @RequestMapping("/test1")
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("test1")
     @ResponseBody
     public void getCookie(HttpServletRequest request, HttpServletResponse response) {
         logger.info("handle test1");
@@ -32,7 +38,7 @@ public class TestController {
         }
     }
 
-    @RequestMapping("/setCookie")
+    @RequestMapping("setCookie")
     public void setCookie(HttpServletRequest request, HttpServletResponse response) {
         Cookie cookie = new Cookie("a", "a");
         cookie.setPath("/");
@@ -41,23 +47,38 @@ public class TestController {
         logger.info("handle setCookie");
     }
 
-    @RequestMapping("/threadTest")
+    @RequestMapping("threadTest")
     public void threadTest() throws Exception {
         logger.info("@" + Integer.toHexString(hashCode()) + " " + Thread.currentThread().getName() + " start");
         Thread.sleep(2000);
         logger.info(Thread.currentThread().getName() + " is ok");
     }
 
-    @RequestMapping("/throwException")
+    @RequestMapping("throwException")
     public String throwException() throws Exception {
         int sleepTime = (int) (Math.random() * 2000) + 1;
         Thread.sleep(sleepTime);
         throw new RuntimeException("throwException");
     }
 
-    @RequestMapping("/throwWait1000")
+    @RequestMapping("throwWait2000")
     public String throwWait1000() throws Exception {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         throw new RuntimeException("throwException");
+    }
+
+    @RequestMapping("addUser")
+    public void addUser() {
+        User user = new User();
+        for (int i = 0; i < 100; i++) {
+            user.setId(String.valueOf(i));
+            user.setName("call " + i);
+            userService.save(user);
+        }
+    }
+
+    @RequestMapping("threadPool")
+    public void threadPool() throws Exception{
+        userService.lockTable();
     }
 }

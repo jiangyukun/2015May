@@ -10,4 +10,10 @@ public class TestTemp {
     public static void main(String[] args) {
         System.out.println(StringUtils.isEmpty(""));
     }
+
+    static class A {
+        interface B {
+
+        }
+    }
 }

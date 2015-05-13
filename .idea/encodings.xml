@@ -2,8 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j/10.137.1.121.lcf" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j/10.137.1.121.lcf" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j/127.0.0.1.lcf" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j/127.0.0.2.lcf" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j/server.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j2.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/root.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-servlet.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/backbone/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/backbone/js" charset="GBK" />
   </component>
 </project>

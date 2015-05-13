@@ -1,4 +1,4 @@
-package me.jiangyu.may.web.controller.advice;
+package me.jiangyu.may.web.advice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ public class ResponseBodyAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public String exceptionHandler(Exception e) {
-        logger.error(e.getMessage());
+        logger.error(e.getMessage(), e);
         return e.getMessage();
     }
 
