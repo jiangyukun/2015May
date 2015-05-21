@@ -11,9 +11,10 @@
 
     <context:component-scan base-package="me.jiangyu.may">
         <context:exclude-filter type="regex" expression="me.jiangyu.may.web.*"/>
+        <context:exclude-filter type="regex" expression="me.jiangyu.may.test.*"/>
     </context:component-scan>
     <tx:annotation-driven/>
-    <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/may"/>
+    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/may"/>
 
     <bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
         <property name="persistenceXmlLocation" value="classpath*:/META-INF/persistence.xml"/>

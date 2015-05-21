@@ -4,7 +4,6 @@ import org.apache.log4j.*;
 import org.apache.log4j.net.SocketNode;
 import org.apache.log4j.spi.LoggerRepository;
 import org.apache.log4j.spi.RootLogger;
-import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.InetAddress;
@@ -39,13 +38,14 @@ public class Log4jServer {
         try {
             cat.info("Listening on port " + port);
             ServerSocket serverSocket = new ServerSocket(port);
+//            serverSocket.setSoTimeout(1000);
             while (true) {
                 cat.info("Waiting to accept a new client.");
                 Socket socket = serverSocket.accept();
                 InetAddress inetAddress = socket.getInetAddress();
                 cat.info("Connected to client at " + inetAddress);
 
-                LoggerRepository h = (LoggerRepository) server.hierarchyMap.get(inetAddress);
+                LoggerRepository h = server.hierarchyMap.get(inetAddress);
                 if (h == null) {
                     h = server.configureHierarchy(inetAddress);
                 }
@@ -58,11 +58,9 @@ public class Log4jServer {
         }
     }
 
-
     static void usage(String msg) {
         System.err.println(msg);
-        System.err.println(
-                "Usage: java " + Log4jServer.class.getName() + " port configFile directory");
+        System.err.println("Usage: java " + Log4jServer.class.getName() + " port configFile directory");
         System.exit(1);
     }
 
@@ -82,7 +80,6 @@ public class Log4jServer {
         }
         server = new Log4jServer(dir);
     }
-
 
     public Log4jServer(File directory) {
         this.dir = directory;

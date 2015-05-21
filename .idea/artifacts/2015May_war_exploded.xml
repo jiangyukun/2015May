@@ -58,7 +58,7 @@
           <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.2.1" />
           <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.1" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-test:4.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.testng:testng:6.8.21" />
           <element id="library" level="project" name="Maven: org.beanshell:bsh:2.0b4" />
           <element id="library" level="project" name="Maven: com.beust:jcommander:1.27" />

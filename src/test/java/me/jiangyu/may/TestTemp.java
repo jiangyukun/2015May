@@ -13,7 +13,9 @@ public class TestTemp {
 
     static class A {
         interface B {
+            void a(Object o);
 
+            void a(String str);
         }
     }
 }
