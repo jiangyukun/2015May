@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * Created by jiangyukun on 2015/5/21.
  */
 @Component
-public class AuthenticationProvider implements UserDetailsService {
+public class DaoUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;

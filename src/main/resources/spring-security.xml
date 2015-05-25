@@ -7,11 +7,19 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http>
-        <form-login login-page="/admin"/>
-        <intercept-url pattern="/admin/**" access="hasPermission"/>
+    <beans:bean id="basicAuthenticationFilter" class="me.jiangyu.may.web.filter.BasicAuthenticationFilter"/>
+    <http auto-config="false" authentication-manager-ref="authenticationManager" use-expressions="false">
+        <access-denied-handler error-page="/error"/>
+        <anonymous enabled="false"/>
+        <form-login login-page="/login"/>
+        <intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/admin/abc" access="ROLE_TEST"/>
+        <intercept-url pattern="/test/**" access="ROLE_TEST"/>
+        <custom-filter ref="basicAuthenticationFilter" after="SECURITY_CONTEXT_FILTER"/>
     </http>
-    <authentication-manager>
+    <authentication-manager id="authenticationManager">
         <authentication-provider user-service-ref="authenticationProvider"/>
     </authentication-manager>
+
+    <debug/>
 </beans:beans>
